@@ -74,7 +74,7 @@ def get_current_term():
 
 # Function checks and returns boolean if data is located in the current table
 def check_term_data_in_db(engine, term):
-    # Connecting to the ODS Table in PGSql to retrieve Data
+    # Connecting to the PGSql Table in PGSql to retrieve Data
     with engine.connect() as connect:
         # This is the Enrollment block, selecting, executing, renaming columns #
         sql = '''SELECT * FROM public.pg_table_name WHERE public.pg_table_name.enrollment_term_name
@@ -92,7 +92,7 @@ def check_term_data_in_db(engine, term):
 
 # Function checks and returns boolean if data is located in the current table
 def get_current_term_data_in_db(engine):
-    # Connecting to the ODS Table in PGSql to retrieve Data
+    # Connecting to the PGSql Table in PGSql to retrieve Data
     with engine.connect() as connect:
         # This is the Enrollment block, selecting, executing, renaming columns #
         sql = '''SELECT * FROM public.pg_table_name'''
@@ -158,6 +158,7 @@ def merge_tables_account(df, df2, names, value, jointype):
 #     log.info('')
 
 
+# This fundction displays the amount of time past from the start time and displaying the title from "name"
 def print_time(start_time, name):
     table_end = time.time()
     log.info('')
