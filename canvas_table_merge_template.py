@@ -37,39 +37,16 @@ def canvas_post_engine(host, port, db, user, pw):
 
 
 # Function returns the current term based on today's date
-def get_current_term():
-    # Using today's date to decide the term
-    current_day = date.today().strftime('%d')
-    current_month = date.today().strftime('%m')
-    current_year = date.today().strftime('%Y')
-    current_daymonth = current_month + "/" + current_day
-    term = ""
+def get_current_term(today = date.today()):
+    current_year = today.year
+    fall_start = date(current_year, 8,1)
+    summer_start = date(current_year, 5, 1)
 
-    # Here we set the generic start date of the fall term
-    fall_day = "01"
-    fall_month = "08"
-    fall_date = fall_month + "/" + fall_day
-
-    # Here we set the generic start date of the spring term
-    spring_day = "01"
-    spring_month = "01"
-    spring_date = spring_month + "/" + spring_day
-
-    # Here we set the generic start date of the summer term
-    summer_day = "01"
-    summer_month = "05"
-    summer_date = summer_month + "/" + summer_day
-
-    # We decide what term it is and return it
-    if current_daymonth > fall_date:
-        term = "Fall Semester " + current_year
-    elif current_daymonth > spring_date:
-        if current_daymonth < summer_date:
-            term = "Spring Semester " + str(int(current_year) + 1)
-        else:
-            term = "Summer Semester " + str(int(current_year) + 1)
-
-    return term
+    if today > fall_start:
+        return f"Fall Semester {current_year}"
+    if today > summer_start:
+        return f"Summer Semester {current_year}"
+    return f"Spring Semester {current_year}"
 
 
 # Function checks and returns boolean if data is located in the current table
@@ -99,7 +76,6 @@ def get_current_term_data_in_db(engine):
         sql_text = text(sql)
         query = connect.execute(sql_text)
         df = pd.DataFrame(query.fetchall())
-
     return df
 
 
