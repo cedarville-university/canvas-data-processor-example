@@ -10,9 +10,8 @@ This "README" file provides an explanation of the Python scripts institutional_d
 
 - File Name: institutional_db_to_postgresql
 - Author: Byamba Bird
-- Date: September 30, 2023
-- Version: 1.0 (Initial Release)
-- 
+- Date: March 26, 2024
+- Version: 1.1 (Initial Release)
 
 ## PURPOSE
 
@@ -96,5 +95,7 @@ This Python script is provided by Cedarville. You are free to use, modify, and d
 If you have any questions or need further assistance, feel free to contact the author:
 - Name: Byamba Bird
 - Email: bbbird@cedarville.edu
+- Name: Nathanael Biggs
+- Email: nbiggs112@cedarville.edu
 
 Thank you for using canvas_table_merge_template.py. We hope it helps you create and understand the collecting and merging of data to update a table in the PGSql.
